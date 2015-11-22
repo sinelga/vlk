@@ -4,51 +4,18 @@ import {Component, bootstrap, CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/a
 class Hero {
     id: number;
     name: string;
+    details: string;
 }
 
 @Component({
     selector: 'my-app',
-    template: `<h1 > {{title }}</h1>
-<div *ng-if="selectedHero">
-<h2>{{selectedHero.name}} details!</h2>
-<div><label>id: </label>{{selectedHero.id}}</div>
-<div>
-    <label>name: </label>
-    <input [(ng-model)]="selectedHero.name" placeholder="name"></input>
-</div>
-</div>
-    
-    <h2>My Heroes</h2>
-<ul class="heroes">
-<li *ng-for="#hero of heroes" [ng-class]="getSelectedClass(hero)" (click)="onSelect(hero)">    
-  <span class="badge">{{hero.id}}</span> {{hero.name}}
-</li>
-
-</ul>
-    </div>
-<zippy title="Details"></zippy>
-    `,
-    styles:[`
-  .heroes {list-style-type: none; margin-left: 1em; padding: 0; width: 10em;}
-  .heroes li { cursor: pointer; position: relative; left: 0; transition: all 0.2s ease; }
-  .heroes li:hover {color: #369; background-color: #EEE; left: .2em;}
-  .heroes .badge {
-    font-size: small;
-    color: white;
-    padding: 0.1em 0.7em;
-    background-color: #369;
-    line-height: 1em;
-    position: relative;
-    left: -1px;
-    top: -1px;
-  }
-  .selected { background-color: #EEE; color: #369; }
-  `],
+    templateUrl: 'templates/main.html'
+//    styleUrls:['style.css'],
     
     directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 class AppComponent {
-    public title = 'Tour of Heroes';
+    public title = 'Volkov Alexander';
 	public selectedHero: Hero;
     public heroes = HEROES;
     onSelect(hero){
@@ -64,16 +31,16 @@ class AppComponent {
 bootstrap(AppComponent);
 
 var HEROES: Hero[] = [
-    { "id": 11, "name": "Mr. Nice" },
-    { "id": 12, "name": "Narco" },
-    { "id": 13, "name": "Bombasto" },
-    { "id": 14, "name": "Celeritas" },
-    { "id": 15, "name": "Magneta" },
-    { "id": 16, "name": "RubberMan" },
-    { "id": 17, "name": "Dynama" },
-    { "id": 18, "name": "Dr IQ" },
-    { "id": 19, "name": "Magma" },
-    { "id": 20, "name": "Tornado" }
+    { "id": 1, "name": "Translation","details":"details ksksksks"},
+    { "id": 2, "name": "Consultation","details":"details jsjsjsjs" },
+    { "id": 3, "name": "Company Creation","details":"details 18182828" },
+    { "id": 4, "name": "Activity 4","details":"details hshs828282" },
+    { "id": 5, "name": "Activity 5","details":"details iwiwiw838383" },
+    { "id": 6, "name": "Activity 6","details":"details jshdhd64363636" },
+    { "id": 7, "name": "Activity 7","details":"details kskskk 8383838" },
+    { "id": 8, "name": "Activity 8","details":"details ksksksks 8282828" },
+    { "id": 9, "name": "Activity 9","details":"details sksksksk " },
+    { "id": 10, "name": "Activity 10","details":"details ksksksksksk" }
 ];
 
 

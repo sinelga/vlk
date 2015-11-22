@@ -18,7 +18,7 @@ var Hero = (function () {
 })();
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'Tour of Heroes';
+        this.title = 'Volkov Alexander';
         this.heroes = HEROES;
     }
     AppComponent.prototype.onSelect = function (hero) {
@@ -30,8 +30,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         angular2_1.Component({
             selector: 'my-app',
-            template: "<h1 > {{title }}</h1>\n<div *ng-if=\"selectedHero\">\n<h2>{{selectedHero.name}} details!</h2>\n<div><label>id: </label>{{selectedHero.id}}</div>\n<div>\n    <label>name: </label>\n    <input [(ng-model)]=\"selectedHero.name\" placeholder=\"name\"></input>\n</div>\n</div>\n    \n    <h2>My Heroes</h2>\n<ul class=\"heroes\">\n<li *ng-for=\"#hero of heroes\" [ng-class]=\"getSelectedClass(hero)\" (click)=\"onSelect(hero)\">    \n  <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n</li>\n\n</ul>\n    </div>\n<zippy title=\"Details\"></zippy>\n    ",
-            styles: ["\n  .heroes {list-style-type: none; margin-left: 1em; padding: 0; width: 10em;}\n  .heroes li { cursor: pointer; position: relative; left: 0; transition: all 0.2s ease; }\n  .heroes li:hover {color: #369; background-color: #EEE; left: .2em;}\n  .heroes .badge {\n    font-size: small;\n    color: white;\n    padding: 0.1em 0.7em;\n    background-color: #369;\n    line-height: 1em;\n    position: relative;\n    left: -1px;\n    top: -1px;\n  }\n  .selected { background-color: #EEE; color: #369; }\n  "],
+            templateUrl: 'templates/main.html',
+            //    styleUrls:['style.css'],
             directives: [angular2_1.CORE_DIRECTIVES, angular2_1.FORM_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
@@ -40,15 +40,15 @@ var AppComponent = (function () {
 })();
 angular2_1.bootstrap(AppComponent);
 var HEROES = [
-    { "id": 11, "name": "Mr. Nice" },
-    { "id": 12, "name": "Narco" },
-    { "id": 13, "name": "Bombasto" },
-    { "id": 14, "name": "Celeritas" },
-    { "id": 15, "name": "Magneta" },
-    { "id": 16, "name": "RubberMan" },
-    { "id": 17, "name": "Dynama" },
-    { "id": 18, "name": "Dr IQ" },
-    { "id": 19, "name": "Magma" },
-    { "id": 20, "name": "Tornado" }
+    { "id": 1, "name": "Translation", "details": "details ksksksks" },
+    { "id": 2, "name": "Consultation", "details": "details jsjsjsjs" },
+    { "id": 3, "name": "Company Creation", "details": "details 18182828" },
+    { "id": 4, "name": "Activity 4", "details": "details hshs828282" },
+    { "id": 5, "name": "Activity 5", "details": "details iwiwiw838383" },
+    { "id": 6, "name": "Activity 6", "details": "details jshdhd64363636" },
+    { "id": 7, "name": "Activity 7", "details": "details kskskk 8383838" },
+    { "id": 8, "name": "Activity 8", "details": "details ksksksks 8282828" },
+    { "id": 9, "name": "Activity 9", "details": "details sksksksk " },
+    { "id": 10, "name": "Activity 10", "details": "details ksksksksksk" }
 ];
 //# sourceMappingURL=app.js.map
