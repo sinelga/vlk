@@ -1,4 +1,4 @@
-<h1 > {{title}}</h1>
+<h1> {{title}}</h1>
 
 <div class="row">
 <div class="col-md-4">
@@ -15,23 +15,28 @@
 <div class="col-md-8">
 <div *ng-if="selectedHero">
 <img src="assets/images/activity/{{selectedHero.id}}.jpg" alt="Smiley face" height="60" width="60">
-<h2>{{selectedHero.name}} details!</h2>
-<h3>{{selectedHero.details}}</h3>
-<div><label>id: </label>{{selectedHero.id}}</div>
+
+<h2>{{selectedHero.name}}</h2>
+<h3>{{selectedHero.title}}</h2>
+<h4>{{selectedHero.details}}</h3>
+<!-- <div><label>id: </label>{{selectedHero.id}}</div> -->
+<div>Contact: </div>
 <div>
-    <label>name: </label>
-    <input [(ng-model)]="selectedHero.name" placeholder="name"></input>
-</div>
-</div>
+    <label>Yours email: </label>
+<!--     <input [(ng-model)]="selectedHero.name" placeholder="name"></input></br> -->
+    <input #newemail></br>
 
-</div>
-
-</div>
-
-
-
-
-
+     <label>Yours phone: </label>
+<!--     <input [(ng-model)]="selectedHero.name" placeholder="name"></input>  -->
+    <input #newphone></br>
+ <button (click)=addHero(newemail,newphone)>Save</button> 
     
+</div>
+</div>
+
+</div>
+
+</div>
+
 
     </div>
