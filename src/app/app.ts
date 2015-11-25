@@ -7,6 +7,11 @@ class Hero {
     title: string;
     details: string;
 }
+class Saveinfo {
+    email: string;
+    phone: string;
+        
+    }
 
 @Component({
     selector: 'my-app',
@@ -17,36 +22,55 @@ class Hero {
 class AppComponent {
     public title = 'Volkov Alexander';
 	public selectedHero: Hero;
-//    public heroes = HEROES;
+    public saveInfo: Saveinfo;
+    public heroes: Array<Hero>;
+    public visible: boolean;
+    
+   
     
     constructor(http: Http) {
-    http.get('activity.json')
-      // Call map on the response observable to get the parsed people object
-      .map(res => res.json()).subscribe(heroes => this.heroes = heroes);
-      // Subscribe to the observable to get the parsed people object and attach it to the
-      // component
-//      .subscribe(people => this.people = people);
-  }
+ 
+        this.saveInfo =new Saveinfo();
+        this.visible = false;
+        
+        http.get('activity.json').map(res => res.json()).subscribe(heroes => this.heroes = heroes);
+
+    }
        
     onSelect(hero){
         this.selectedHero = hero;
-//         console.log(JSON.stringify(HEROES) );
+        this.visible = false;
+//        this.toggle();
+//        this.saveInfo.email = "";
+//        this.saveInfo.phone = "";
    
     }
     getSelectedClass(hero: Hero) {
         return { 'selected': hero === this.selectedHero };
     }
     
-     addHero(newemail,newphone) {
-    if (newemail.value || newphone.value) { 
-//      this.heroes.push(newHero.value); 
-//      newHero.value = null; // clear the newHero textbox
-        console.log("newemail.value ",newemail.value);
-        console.log("newphone.value",newphone.value);
-        newemail.value = null;
-        newphone.value =null;
-        
+     addHero(newphone,newemail) {
+        if (newemail.value || newphone.value) { 
+            this.toggle();
+            this.saveInfo = {email:newemail.value,phone:newphone.value};
+               
+        }
     }
+    
+    confirmSaving(newphone,newemail){
+        
+       this.toggle(); 
+        
+    }    
+    dismissSaving(){
+        
+        this.toggle();
+        
+    }    
+    
+   
+  toggle() {
+    this.visible = !this.visible;
   }
 
 }

@@ -19,19 +19,42 @@
 <h2>{{selectedHero.name}}</h2>
 <h3>{{selectedHero.title}}</h2>
 <h4>{{selectedHero.details}}</h3>
-<!-- <div><label>id: </label>{{selectedHero.id}}</div> -->
+
 <div>Contact: </div>
-<div>
-    <label>Yours email: </label>
-<!--     <input [(ng-model)]="selectedHero.name" placeholder="name"></input></br> -->
-    <input #newemail></br>
+<div class="well" [hidden]="visible">
 
      <label>Yours phone: </label>
-<!--     <input [(ng-model)]="selectedHero.name" placeholder="name"></input>  -->
+
     <input #newphone></br>
- <button (click)=addHero(newemail,newphone)>Save</button> 
+
+    <label>Yours email: </label>
+
+    <input #newemail></br>
+    
+    
+ <button (click)=addHero(newphone,newemail)>Save</button> 
     
 </div>
+
+<div class="well" [hidden]="!visible">
+
+<label>This information will be saved </label></br>
+<div *ng-if="saveInfo.email">
+email: {{saveInfo.email}}</br>
+</div>
+<div *ng-if="saveInfo.phone">
+phone: {{saveInfo.phone}}
+</div>
+
+<button (click)=confirmSaving(newphone,newemail)>Confirm</button>
+<button (click)=dismissSaving()>Dismiss</button>  
+
+</div>
+
+
+
+
+
 </div>
 
 </div>

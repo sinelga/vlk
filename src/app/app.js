@@ -16,33 +16,43 @@ var Hero = (function () {
     }
     return Hero;
 })();
+var Saveinfo = (function () {
+    function Saveinfo() {
+    }
+    return Saveinfo;
+})();
 var AppComponent = (function () {
-    //    public heroes = HEROES;
     function AppComponent(http) {
         var _this = this;
         this.title = 'Volkov Alexander';
-        http.get('activity.json')
-            .map(function (res) { return res.json(); }).subscribe(function (heroes) { return _this.heroes = heroes; });
-        // Subscribe to the observable to get the parsed people object and attach it to the
-        // component
-        //      .subscribe(people => this.people = people);
+        this.saveInfo = new Saveinfo();
+        this.visible = false;
+        http.get('activity.json').map(function (res) { return res.json(); }).subscribe(function (heroes) { return _this.heroes = heroes; });
     }
     AppComponent.prototype.onSelect = function (hero) {
         this.selectedHero = hero;
-        //         console.log(JSON.stringify(HEROES) );
+        this.visible = false;
+        //        this.toggle();
+        //        this.saveInfo.email = "";
+        //        this.saveInfo.phone = "";
     };
     AppComponent.prototype.getSelectedClass = function (hero) {
         return { 'selected': hero === this.selectedHero };
     };
-    AppComponent.prototype.addHero = function (newemail, newphone) {
+    AppComponent.prototype.addHero = function (newphone, newemail) {
         if (newemail.value || newphone.value) {
-            //      this.heroes.push(newHero.value); 
-            //      newHero.value = null; // clear the newHero textbox
-            console.log("newemail.value ", newemail.value);
-            console.log("newphone.value", newphone.value);
-            newemail.value = null;
-            newphone.value = null;
+            this.toggle();
+            this.saveInfo = { email: newemail.value, phone: newphone.value };
         }
+    };
+    AppComponent.prototype.confirmSaving = function (newphone, newemail) {
+        this.toggle();
+    };
+    AppComponent.prototype.dismissSaving = function () {
+        this.toggle();
+    };
+    AppComponent.prototype.toggle = function () {
+        this.visible = !this.visible;
     };
     AppComponent = __decorate([
         angular2_1.Component({
