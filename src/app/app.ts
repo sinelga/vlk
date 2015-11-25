@@ -25,6 +25,7 @@ class AppComponent {
     public saveInfo: Saveinfo;
     public heroes: Array<Hero>;
     public visible: boolean;
+    public savedInfo: boolean;
     
    
     
@@ -32,6 +33,7 @@ class AppComponent {
  
         this.saveInfo =new Saveinfo();
         this.visible = false;
+        this.savedInfo=false;
         
         http.get('activity.json').map(res => res.json()).subscribe(heroes => this.heroes = heroes);
 
@@ -59,7 +61,8 @@ class AppComponent {
     
     confirmSaving(newphone,newemail){
         
-       this.toggle(); 
+       this.toggle();
+       this.savedInfo=true; 
         
     }    
     dismissSaving(){

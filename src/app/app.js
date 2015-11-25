@@ -27,6 +27,7 @@ var AppComponent = (function () {
         this.title = 'Volkov Alexander';
         this.saveInfo = new Saveinfo();
         this.visible = false;
+        this.savedInfo = false;
         http.get('activity.json').map(function (res) { return res.json(); }).subscribe(function (heroes) { return _this.heroes = heroes; });
     }
     AppComponent.prototype.onSelect = function (hero) {
@@ -47,6 +48,7 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.confirmSaving = function (newphone, newemail) {
         this.toggle();
+        this.savedInfo = true;
     };
     AppComponent.prototype.dismissSaving = function () {
         this.toggle();

@@ -1,5 +1,9 @@
 <h1> {{title}}</h1>
 
+<div class="alert alert-success" role="alert" [hidden]="!savedInfo" >
+Yours info saved I will contact you as soon as possible.
+</div>
+
 <div class="row">
 <div class="col-md-4">
     <h2>My Activity</h2>
@@ -20,6 +24,8 @@
 <h3>{{selectedHero.title}}</h2>
 <h4>{{selectedHero.details}}</h3>
 
+
+<div [hidden]="savedInfo">
 <div>Contact: </div>
 <div class="well" [hidden]="visible">
 
@@ -52,7 +58,7 @@ phone: {{saveInfo.phone}}
 </div>
 
 
-
+</div>
 
 
 </div>
