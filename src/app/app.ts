@@ -8,6 +8,8 @@ class Hero {
     details: string;
 }
 class Saveinfo {
+    activity: string;
+    name: string;
     email: string;
     phone: string;
         
@@ -51,10 +53,10 @@ class AppComponent {
         return { 'selected': hero === this.selectedHero };
     }
     
-     addHero(newphone,newemail) {
-        if (newemail.value || newphone.value) { 
+     addHero(newname,newphone,newemail) {
+        if ((newname.value && newphone.value) || (newname.value && newemail.value)) { 
             this.toggle();
-            this.saveInfo = {email:newemail.value,phone:newphone.value};
+            this.saveInfo = {activity:this.selectedHero.name,name:newname.value,email:newemail.value,phone:newphone.value};
                
         }
     }

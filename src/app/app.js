@@ -40,10 +40,10 @@ var AppComponent = (function () {
     AppComponent.prototype.getSelectedClass = function (hero) {
         return { 'selected': hero === this.selectedHero };
     };
-    AppComponent.prototype.addHero = function (newphone, newemail) {
-        if (newemail.value || newphone.value) {
+    AppComponent.prototype.addHero = function (newname, newphone, newemail) {
+        if ((newname.value && newphone.value) || (newname.value && newemail.value)) {
             this.toggle();
-            this.saveInfo = { email: newemail.value, phone: newphone.value };
+            this.saveInfo = { activity: this.selectedHero.name, name: newname.value, email: newemail.value, phone: newphone.value };
         }
     };
     AppComponent.prototype.confirmSaving = function (newphone, newemail) {

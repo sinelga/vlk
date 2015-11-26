@@ -29,22 +29,30 @@ Yours info saved I will contact you as soon as possible.
 <div>Contact: </div>
 <div class="well" [hidden]="visible">
 
-     <label>Yours phone: </label>
-
+     <label>*Name: </label>
+    <input #newname></br>		
+		
+     <label>Phone: </label>
     <input #newphone></br>
 
-    <label>Yours email: </label>
-
+    <label>Email: </label>
     <input #newemail></br>
     
     
- <button (click)=addHero(newphone,newemail)>Save</button> 
+ <button (click)=addHero(newname,newphone,newemail)>Save</button> 
     
 </div>
 
 <div class="well" [hidden]="!visible">
 
 <label>This information will be saved </label></br>
+
+<div>
+{{saveInfo.activity}}
+<div>
+<div *ng-if="saveInfo.name">
+name:{{saveInfo.name}}
+</div>
 <div *ng-if="saveInfo.email">
 email: {{saveInfo.email}}</br>
 </div>
